@@ -1,135 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Árbol del Amor</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #fff0f5;
-      font-family: sans-serif;
-      overflow: hidden;
-      position: relative;
-      height: 100vh;
-    }
-
-    .ground {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 4px;
-      background: #000;
-      width: 0;
-      animation: growGround 2s forwards;
-    }
-
-    @keyframes growGround {
-      to {
-        width: 100%;
-      }
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      background-color: #f54291;
-      border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: fallDot 2s forwards;
-    }
-
-    @keyframes fallDot {
-      to {
-        top: calc(100vh - 10px); /* فاصله از پایین برای برخورد */
-      }
-    }
-
-    .tree {
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 200px;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .tree.visible {
-      opacity: 1;
-    }
-
-    .heart-leaves {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease 0.5s;
-    }
-
-    .heart-leaves.visible {
-      opacity: 1;
-    }
-
-    .heart {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: red;
-      transform: rotate(45deg);
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -6px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 6px;
-      top: 0;
-    }
-  </style>
+  <title>Heart love</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<h1>I love you Angela 🌻</h1>
+<div class="display">
+  <svg viewBox="0 0 100 92">
+    <path d="M8.57864 8.57864C20.0168 -2.85955 38.5618 -2.85955 50 8.57864C61.4382 -2.85955 79.9832 -2.85955 91.4214 8.57864C102.86 20.0168 102.86 38.5618 91.4214 50C91.4162 50.0052 91.411 50.0104 91.4058 50.0156L50 91.4213L8.59924 50.0206C8.59237 50.0137 8.58551 50.0069 8.57864 50C-2.85955 38.5618 -2.85955 20.0168 8.57864 8.57864Z" fill="currentcolor"/>
+  </svg>
+</div>
+<!-- Sigueme en Tiktok e Instagram 
 
-  <div class="ground" id="ground"></div>
-  <div class="dot" id="dot"></div>
+  Tk: https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc
+  Ig: https://www.instagram.com/alexx_deev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
 
-  <div class="tree" id="tree">
-    <img src="https://i.imgur.com/Bz0g2VY.png" alt="Tree Base" style="width: 100%;">
-    <div class="heart-leaves" id="hearts">
-      <div class="heart" style="top: 20px; left: 30px; background: pink;"></div>
-      <div class="heart" style="top: 40px; left: 60px; background: orange;"></div>
-      <div class="heart" style="top: 50px; left: 20px; background: red;"></div>
-      <div class="heart" style="top: 70px; left: 80px; background: violet;"></div>
-    </div>
-  </div>
-
-  <script>
-    const dot = document.getElementById('dot');
-    const tree = document.getElementById('tree');
-    const hearts = document.getElementById('hearts');
-
-    dot.addEventListener('animationend', () => {
-      dot.style.display = 'none';
-      tree.classList.add('visible');
-      hearts.classList.add('visible');
-    });
-  </script>
+-->
 </body>
 </html>
