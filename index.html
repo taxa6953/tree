@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Love Tree</title>
+  <title>Árbol del Amor</title>
   <style>
     body {
       margin: 0;
@@ -10,16 +10,17 @@
       font-family: sans-serif;
       overflow: hidden;
       position: relative;
+      height: 100vh;
     }
 
     .ground {
       position: absolute;
       bottom: 0;
-      height: 4px;
-      background: #5C4033;
       left: 0;
+      height: 4px;
+      background: #000;
       width: 0;
-      animation: growGround 3s forwards;
+      animation: growGround 2s forwards;
     }
 
     @keyframes growGround {
@@ -29,20 +30,20 @@
     }
 
     .dot {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       background-color: #f54291;
       border-radius: 50%;
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      animation: fallDot 3s forwards;
+      animation: fallDot 2s forwards;
     }
 
     @keyframes fallDot {
       to {
-        top: calc(100vh - 20px);
+        top: calc(100vh - 10px); /* فاصله از پایین برای برخورد */
       }
     }
 
@@ -51,18 +52,14 @@
       bottom: 4px;
       left: 50%;
       transform: translateX(-50%);
-      width: 0;
-      height: 0;
+      width: 120px;
+      height: 200px;
       opacity: 0;
-      animation: growTree 1s 3s forwards;
+      transition: opacity 1s ease;
     }
 
-    @keyframes growTree {
-      to {
-        width: 120px;
-        height: 200px;
-        opacity: 1;
-      }
+    .tree.visible {
+      opacity: 1;
     }
 
     .heart-leaves {
@@ -72,70 +69,67 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      animation: showHearts 1s 4s forwards;
+      transition: opacity 1s ease 0.5s;
     }
 
-    @keyframes showHearts {
-      to {
-        opacity: 1;
-      }
+    .heart-leaves.visible {
+      opacity: 1;
     }
 
     .heart {
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       background: red;
       transform: rotate(45deg);
-      animation: floatHeart 5s infinite;
     }
 
     .heart::before,
     .heart::after {
       content: "";
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       background: red;
       border-radius: 50%;
     }
 
     .heart::before {
-      top: -5px;
+      top: -6px;
       left: 0;
     }
 
     .heart::after {
-      left: 5px;
+      left: 6px;
       top: 0;
-    }
-
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-50px) rotate(45deg);
-        opacity: 0;
-      }
     }
   </style>
 </head>
 <body>
 
-  <div class="dot"></div>
-  <div class="ground"></div>
+  <div class="ground" id="ground"></div>
+  <div class="dot" id="dot"></div>
 
-  <div class="tree">
-    <img src="tree-base.png" alt="Tree" style="width: 100%;">
-    <div class="heart-leaves">
-      <!-- نمونه قلب‌های رنگی -->
-      <div class="heart" style="top: 10px; left: 30px; background: pink;"></div>
-      <div class="heart" style="top: 40px; left: 50px; background: orange;"></div>
-      <div class="heart" style="top: 60px; left: 70px; background: red;"></div>
+  <div class="tree" id="tree">
+    <img src="https://i.imgur.com/Bz0g2VY.png" alt="Tree Base" style="width: 100%;">
+    <div class="heart-leaves" id="hearts">
+      <div class="heart" style="top: 20px; left: 30px; background: pink;"></div>
+      <div class="heart" style="top: 40px; left: 60px; background: orange;"></div>
+      <div class="heart" style="top: 50px; left: 20px; background: red;"></div>
+      <div class="heart" style="top: 70px; left: 80px; background: violet;"></div>
     </div>
   </div>
 
+  <script>
+    const dot = document.getElementById('dot');
+    const tree = document.getElementById('tree');
+    const hearts = document.getElementById('hearts');
+
+    dot.addEventListener('animationend', () => {
+      dot.style.display = 'none';
+      tree.classList.add('visible');
+      hearts.classList.add('visible');
+    });
+  </script>
 </body>
 </html>
